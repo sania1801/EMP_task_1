@@ -1,0 +1,41 @@
+ 2028  mkdir task_first
+ 2029  cd task_first/
+ 2030  touch file.txt
+			Инициализация и добавление репозитория
+ 2031  git init
+ 2032  git add .
+ 2033  git commit -m "first commit"
+ 2034  git remote add origin https://github.com/sania1801/EMP_task_1.git
+ 2035  git push -u origin master
+				Создаем новую ветку develop
+ 2036  git checkout -b develop
+ 2037  git push origin develop
+				Создаем новую ветку от develop
+ 2038  git checkout -b child_develop
+ 2039  git add .
+ 2040  git commit -m "add first line" -m "Добавили первую строку в ветку от develop"
+ 2041  git push origin child_develop
+				Клонируем репозиторий(забыл что папка автоматом создается, поэтому вручную создал)
+ 2042  cd ..
+ 2043  cd clone_task_first/
+ 2044  git clone https://github.com/sania1801/EMP_task_1
+ 2045  cd EMP_task_1/
+ 2046  git branch
+ 2047  git checkout develop
+				Переключаемся на новую ветку от develop и добавляем строку
+ 2048  git checkout -b child_second_develop
+ 2049  git add .
+ 2050  git commit -m "add new line from another directory" -m "добавили строку в клонированный репозиторий"
+ 2051  git push origin child_second_develop
+				Мержим новые изменения(можно было использовать merge, но на проекте всегда pull пользуюсь)
+ 2052  git checkout develop
+ 2053  git pull origin child_develop
+ 2054  git pull origin child_second_develop
+				Решаем конфликт и пушим изменения
+ 2055  git add .
+ 2056  git commit -m "solve merge conflict"
+ 2057  git push origin develop
+ 2058  git branch
+				Создаем файл с описание(дальше запушу файл с описанием и сделаю pull request в мастер)
+ 2059  touch description.txt
+
